@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>адаптивное меню</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		nav{
+			background: lightblue;
+		}
+		ul{
+			list-style: none;
+			font-size: 20px;
+		}
+		nav ul li{
+			display: inline-block;
+		}
+		a{
+			display: block;
+			padding: 20px 30px;
+			text-decoration: none;
+			color: black;
+		}
+		a:hover{
+			background: pink;
+		}
+		.menu{
+			height: 50px;
+			background: lightgreen;
+			font-size: 20px;
+			line-height: 50px;
+			padding: 0 20px;
+			display: none;
+		}
+		@media screen and (max-width: 768px){
+			.menu{
+				display: block;
+			}
+			nav ul{
+				display: none;
+			}
+			nav ul li{
+				display: block;
+				border-top: 2px solid black;
+			}
+			ul li:last-child{
+				border-bottom: 2px solid black;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<a href="#" class="menu">Menu</a>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Gallery</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contacts</a></li>
+		</ul>
+	</nav>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$('.menu').click(function(){
+				$('nav ul').slideToggle();
+			});
+
+			$(window).resize(function(){
+				if ( $(window).width() > 768) 
+					$('nav ul').removeAttr('style')
+			});
+
+		});
+
+	</script>
+</body>
+</html>
